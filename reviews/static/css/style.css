@@ -1,0 +1,27 @@
+body{
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color:rgb(44, 80, 82);
+}
+h1{
+    font-weight: normal;
+    border-bottom: 1px solid darkcyan;
+    color: rgb(73, 138, 100);
+}
+h2{
+    font-weight: normal;
+    margin-bottom: 30px;
+    font-size: 26px;
+    color:rgb(78, 134, 86);
+
+} 
+input, textarea{
+    margin-bottom: 10px;
+    background: rgb(92, 156, 151);
+    border:0;
+    padding: 6px 10px;
+    width: 71%;
+    margin-left: 30px;
+
+}
+textarea{margin-left:35px;}
