@@ -1,14 +1,12 @@
 from django.shortcuts import render
 from reviews.forms import ReviewForm 
 from django.shortcuts import redirect 
+from reviews.models import Review
 
 # Create your views here.
 def reviews (request):
-    
-    if request.method=='GET':
-        form=ReviewForm()
-        return render(request,'reviews.html',{'form':form})
-    elif request.method=='POST':
+   
+    if request.method=='POST':
 
         form=ReviewForm(request.POST)
         if form.is_valid():
@@ -17,10 +15,10 @@ def reviews (request):
             name=data.get('name')
             email=data.get('email')
             review=data.get('review')
-
-            with open('data.csv', 'a') as file:
-                file.write(f'{name}|{email}|{review}\n')
+            rating=data.get('rating')
+            Review.objects.create(name=name, email=email,review=review, rating=rating)
             return redirect('reviews')
-    else:
         form=ReviewForm()
+        review1=Review.objects.get(id=1)
+        print(review1.name)
         return render (request, 'reviews.html',  { 'form':form})
